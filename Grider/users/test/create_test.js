@@ -10,7 +10,7 @@ describe('Creating records', () => {
         .then(() => {
             // Has Joe been saved succesfully
             assert(!joe.isNew);
-            console.log('Joe is new!');
+            console.log('+++Joe is new!');
             done();
         });
     });
