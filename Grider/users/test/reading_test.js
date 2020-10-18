@@ -18,7 +18,7 @@ describe('Reading users out of the database', () =>{
             // console.log(joe._id)
             //._id_ObjectId({""}) requires .toString()
             assert(users[0]._id.toString() === joe._id.toString());
-            console.log('+++ User._id matches id in mongo!');
+            console.log('++++ 6.  User._id matches id in mongo!');
             done();
         })
     })
@@ -27,7 +27,7 @@ describe('Reading users out of the database', () =>{
         User.findOne({ _id: joe._id })
         .then((user) => {
             assert(user.name === 'Joe');
-            console.log('+++ findOne User w. _id')
+            console.log('++++ 7.  findOne User w. _id')
             done();
         });
     });

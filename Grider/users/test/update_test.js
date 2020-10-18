@@ -23,12 +23,12 @@ describe('Updating records', () => {
   it('instance type using set n save', (done) => {
     joe.set('name', 'Alex');
     assertName(joe.save(), done);
-    console.log('++++ update using Set and Save');
+    console.log('++++ 8. update using Set and Save');
   });
 
   it('A model instance can update', (done) => {
     assertName(joe.updateOne({ name: 'Alex' }), done);
-    console.log('++++ update using assertName model instance');
+    console.log('++++ 9. update using assertName model instance');
 
   });
 
@@ -37,7 +37,7 @@ describe('Updating records', () => {
       User.updateMany({ name: 'Joe' }, { name: 'Alex' }),
       done
     );
-    console.log('++++ updateMany model class')
+    console.log('++++ 10. updateMany model class')
   });
 
   it('A model class can update one record', (done) => {
@@ -45,7 +45,7 @@ describe('Updating records', () => {
       User.findOneAndUpdate({ name: 'Joe' }, { name: 'Alex' }),
       done
     );
-    console.log('++++ findOneAndUpdate model class');
+    console.log('++++ 11. findOneAndUpdate model class');
   });
 
   it('A model class can find a record with an Id and update', (done) => {
@@ -53,10 +53,18 @@ describe('Updating records', () => {
       User.findByIdAndUpdate(joe._id, { name: 'Alex' }),
       done
     );
-    console.log('++++ findByIdAndUpdate model class one record');
+    console.log('++++ 12. findByIdAndUpdate model class one record');
   });
 
-
+   it('A user can have their postcount incremented by 1', (done) => {
+     User.updateMany({ name: 'Joe' }, { $inc: { likes: 10 } })
+       .then(() => User.findOne({ name: 'Joe' }))
+       .then((user) => {
+         assert(user.likes === 10);
+         done();
+      });
+      console.log('++++ 13. increment likes by 1');
+   });
 });
 
 

@@ -1,6 +1,13 @@
-const mongoose = require('mongoose');
-
+Promise = require("bluebird")
+Promise.config({
+  longStackTraces: true,
+  warnings: {
+    wForgottenReturn: false
+  }
+})
+mongoose = require('mongoose')
 mongoose.Promise = global.Promise;
+
 
 before((done) => {
     mongoose.connect('mongodb://localhost/users_test', 

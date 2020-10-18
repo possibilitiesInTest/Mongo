@@ -11,9 +11,9 @@ let joe
         .then(() => {
             // Has Joe been saved succesfully
             assert(!joe.isNew);
-            console.log('+++ Joe is new!');
             done();
         });
+        console.log('++++ 1. Joe is new!');
     });
 
     // it('A model instance can update', () => {
