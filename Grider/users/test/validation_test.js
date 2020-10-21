@@ -5,7 +5,7 @@ describe('Validating records', () => {
 
 
     it('requires a user name', (done) => {
-        const user = new User({ name: 'Alex' });
+        const user = new User({ name: 'Ale' });
         const validationResult = user.validateSync();
         const { message } = validationResult.errors.name;
     
