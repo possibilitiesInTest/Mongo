@@ -8,7 +8,7 @@ describe("Validating records", () => {
     const { message } = validationResult.errors.name;
 
     assert(message === "Name is required.");
-    console.log("++++ 14. Validated name");
+    console.log("++++ 15. Validated name");
     done();
   });
 
@@ -18,7 +18,7 @@ describe("Validating records", () => {
     const { message } = validationResult.errors.name;
 
     assert(message === "Name must be longer than 2 characters.");
-    console.log("++++ 15. name longer than 2 chars");
+    console.log("++++ 16. name longer than 2 chars");
     done();
   });
 
@@ -27,7 +27,7 @@ describe("Validating records", () => {
     user.save().catch((validationResult) => {
       const { message } = validationResult.errors.name;
       assert(message === "Name must be longer than 2 characters");
-      console.log("++++ 16. Disallows invalid record from being saved");
+      console.log("++++ 17. Disallows invalid record from being saved");
       done();
     });
   });

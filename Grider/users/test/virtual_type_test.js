@@ -13,7 +13,7 @@ describe("Virtual types", () => {
       .then(() => User.findOne({ title: "PostTitle" }))
       .then((user) => {
         assert(joe.postCount === 1);
-        console.log("++++ 17. Validate virtual property");
+        console.log("++++ 14. Validate virtual property");
         done();
       });
   });

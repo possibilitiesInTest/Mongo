@@ -22,27 +22,27 @@ describe("Updating records", () => {
   it("instance type using set n save", (done) => {
     joe.set("name", "Alex");
     assertName(joe.save(), done);
-    console.log("++++ 8. update using Set and Save");
+    console.log("++++ 9. update using Set and Save");
   });
 
   it("A model instance can update", (done) => {
     assertName(joe.updateOne({ name: "Alex" }), done);
-    console.log("++++ 9. update using assertName model instance");
+    console.log("++++ 10. update using assertName model instance");
   });
 
   it("A model class can update", (done) => {
     assertName(User.updateMany({ name: "Joe" }, { name: "Alex" }), done);
-    console.log("++++ 10. updateMany model class");
+    console.log("++++ 11. updateMany model class");
   });
 
   it("A model class can update one record", (done) => {
     assertName(User.findOneAndUpdate({ name: "Joe" }, { name: "Alex" }), done);
-    console.log("++++ 11. findOneAndUpdate model class");
+    console.log("++++ 12. findOneAndUpdate model class");
   });
 
   it("A model class can find a record with an Id and update", (done) => {
     assertName(User.findByIdAndUpdate(joe._id, { name: "Alex" }), done);
-    console.log("++++ 12. findByIdAndUpdate model class one record");
+    console.log("++++ 13. findByIdAndUpdate model class one record");
   });
 
   xit("A user can have their postcount incremented by 1", (done) => {
@@ -52,6 +52,6 @@ describe("Updating records", () => {
         assert(user.likes === 1);
         done();
       });
-    console.log("++++ 13. increment posCount by 1");
+    console.log("++++ 14. increment posCount by 1");
   });
 });
