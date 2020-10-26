@@ -27,10 +27,10 @@ describe("Middleware", () => {
   it("users clean up dangling blogposts on remove", (done) => {
     joe
       .remove()
-      .then(() => BlogPost.count())
+      .then(() => BlogPost.estimatedDocumentCount())
       .then((count) => {
         assert(count === 0);
-        console.log("pre clean up blogpost w. middleware");
+        console.log("---- 8 remove dangling associations with UserSchema.pre");
         done();
       });
   });

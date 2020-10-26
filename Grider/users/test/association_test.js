@@ -34,7 +34,7 @@ describe("Assocations", () => {
       });
   });
 
-  xit("saves a full relation graph", (done) => {
+  it("saves a full relation graph", (done) => {
     User.findOne({ name: "Joe" })
       .populate({
         path: "blogPosts",
@@ -54,7 +54,7 @@ describe("Assocations", () => {
           user.blogPosts[0].comments[0].content === "Congrats on great post"
         );
         assert(user.blogPosts[0].comments[0].user.name === "Joe");
-
+        console.log("++++ 2. saves a full graph realtion");
         done();
       });
   });

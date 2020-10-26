@@ -12,7 +12,7 @@ describe("Creating records", () => {
       assert(!joe.isNew);
       done();
     });
-    console.log("++++ 2. Joe is new!");
+    console.log("++++ 3. Joe is new!");
   });
 
   // it('A model instance can update', () => {

@@ -9,7 +9,7 @@ const UserSchema = new Schema({
       validator: (name) => name.length > 2,
       message: "Name must be longer than 2 characters.",
     },
-    required: [true, "Name is required"],
+    required: [true, "Name is required."],
   },
   posts: [PostSchema],
   likes: Number,

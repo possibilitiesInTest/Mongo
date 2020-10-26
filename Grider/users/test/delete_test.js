@@ -12,11 +12,11 @@ describe("Deleting a user", () => {
   it("model instance remove", (done) => {
     // removes single record w. given criteria
     joe
-      .remove()
+      .deleteOne() // .remove()
       .then(() => User.findOne({ name: "Joe" }))
       .then((user) => {
         assert(user === null);
-        console.log("---- 3. Model instance remove!");
+        console.log("---- 4. Model instance remove!");
         done();
       });
   });
@@ -30,7 +30,7 @@ describe("Deleting a user", () => {
       .then(() => User.findOne({ name: "Joe" }))
       .then((user) => {
         assert(user === null);
-        console.log("---- 4. Class method remove!");
+        console.log("---- 5. Class method remove!");
         done();
       });
   });
@@ -40,17 +40,17 @@ describe("Deleting a user", () => {
       .then(() => User.findOne({ name: "Joe" }))
       .then((user) => {
         assert(user === null);
-        console.log("---- 5. FindOne class method remove!");
+        console.log("---- 6. FindOne class method remove!");
         done();
       });
   });
 
-  it("class method findByIdAndRemove", (done) => {
-    User.findByIdAndDelete(joe._id)
+  it("class method findOneAndRemove", (done) => {
+    User.findOneAndDelete({ _id: joe._id })
       .then(() => User.findOne({ name: "Joe" }))
       .then((user) => {
         assert(user === null);
-        console.log("---- 6. FindByIDAndDelete class method remove!");
+        console.log("---- 7. FindOneAndDelete class method remove");
         done();
       });
   });
