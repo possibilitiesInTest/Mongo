@@ -19,10 +19,6 @@ describe("Assocations", () => {
     blogPost.comments.push(comment);
     comment.user = joe;
 
-    // joe.save();
-    // blogPost.save();
-    // comment.save();
-
     Promise.all([joe.save(), blogPost.save(), comment.save()]).then(() =>
       done()
     );
@@ -38,7 +34,7 @@ describe("Assocations", () => {
       });
   });
 
-  it("saves a full relation graph", (done) => {
+  xit("saves a full relation graph", (done) => {
     User.findOne({ name: "Joe" })
       .populate({
         path: "blogPosts",
@@ -58,7 +54,6 @@ describe("Assocations", () => {
           user.blogPosts[0].comments[0].content === "Congrats on great post"
         );
         assert(user.blogPosts[0].comments[0].user.name === "Joe");
-        console.log("++++ 2. saves a relation between user and post");
 
         done();
       });
